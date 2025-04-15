@@ -3,7 +3,7 @@ import Link from "next/link"
 export const Menu = () => {
     return(
         <header className="w-full h-[70px]  bg-gray-900 text-white">
-            <nav className="w-full max-w-[1500px] h-full m-auto flex items-center justify-between px-10 border-4">
+            <nav className="w-full max-w-[1500px] h-full m-auto flex items-center justify-between px-10">
                 <div>
                     <Link href='/pages/home'>Loja</Link>
                 </div>
