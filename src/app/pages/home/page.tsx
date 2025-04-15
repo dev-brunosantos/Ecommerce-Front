@@ -36,7 +36,7 @@ export default function Home() {
 
             <h1 className="text-3xl font-bold text-center">Produtos</h1>
 
-            <div className="w-[90%] h-[100%] m-auto flex flex-wrap items-center justify-center gap-4 mt-10 mb-10">
+            <div className="w-[90%] max-w-[1500px] h-[100%] m-auto flex flex-wrap items-center justify-center gap-4 mt-10 mb-10">
                 {
                     dados.map((prod: ProdutoApi) => (
                         <CardProduto
