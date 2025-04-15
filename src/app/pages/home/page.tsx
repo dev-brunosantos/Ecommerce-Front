@@ -29,8 +29,6 @@ export default function Home() {
         api()
     }, [])
 
-
-
     return (
         <div className="w-full h-full flex flex-col items-center justify-evenly bg-gray-900 text-white">
 
