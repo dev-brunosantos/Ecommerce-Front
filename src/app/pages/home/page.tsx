@@ -4,49 +4,53 @@ import { CardProduto } from "@/src/components/Cards/Produto";
 import { useEffect, useState } from "react";
 
 interface ProdutoApi {
-  id: number,
-  title: string,
-  description: string,
-  price: number,
-  image: string
+    id: number,
+    title: string,
+    description: string,
+    price: number,
+    image: string
 }
 
 
 export default function Home() {
 
-  const [dados, setDados] = useState<ProdutoApi[]>([])
+    const [dados, setDados] = useState<ProdutoApi[]>([])
 
-  useEffect(() => {
-    function api() {
-      fetch('https://fakestoreapi.com/products')
-        .then(res => res.json())
-        .then(data => {
-          console.log(data)
-          setDados(data)
-        })
-    }
+    useEffect(() => {
+        function api() {
+            fetch('https://fakestoreapi.com/products')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    setDados(data)
+                })
+        }
 
-    api()
-  }, [])
+        api()
+    }, [])
 
 
 
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    return (
+        <div className="w-full h-full flex flex-col items-center justify-evenly bg-gray-900 text-white">
 
-      {
-        dados.map((prod: ProdutoApi) => (
-          <CardProduto
-            key={prod.id}
-            id={prod.id}
-            nome={prod.title}
-            descricao={prod.description}
-            imagem={prod.image}
-            preco={prod.price}
-          />
-        ))
-      }
+            <h1 className="text-3xl font-bold text-center">Produtos</h1>
 
-    </div>
-  );
+            <div className="w-[90%] h-[100%] m-auto flex flex-wrap items-center justify-center gap-4 mt-10 mb-10">
+                {
+                    dados.map((prod: ProdutoApi) => (
+                        <CardProduto
+                            key={prod.id}
+                            id={parseInt(JSON.stringify(prod.id))}
+                            nome={prod.title}
+                            descricao={prod.description}
+                            imagem={prod.image}
+                            preco={prod.price}
+                        />
+                    ))
+                }
+            </div>
+
+        </div>
+    );
 }
