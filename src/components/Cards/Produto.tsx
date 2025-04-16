@@ -1,15 +1,23 @@
+import { ProdutoInfor } from "@/src/interfaces/IProduto"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
-interface ProdutoInfor {
-    id: number,
-    nome: string,
-    descricao: string,
-    preco: number,
-    imagem: string
+// interface ProdutoInfor {
+//     id: number,
+//     nome: string,
+//     descricao: string,
+//     preco: number,
+//     imagem: string,
+//     itemCarrinho?: boolean
+// }
+
+interface ProdutoCarrinho extends ProdutoInfor {
+    itemCarrinho?: boolean
 }
 
-export const CardProduto = ({ id, nome, descricao, imagem, preco }:ProdutoInfor) => {
+export const CardProduto = ({ id, nome, descricao, imagem, preco, itemCarrinho }:ProdutoCarrinho) => {
 
+    const router = useRouter()
     
     function addProdutoCarrinho({ id, nome, descricao, imagem,preco }:ProdutoInfor) {
         const produto = { id, nome, descricao, preco, imagem }
@@ -20,6 +28,14 @@ export const CardProduto = ({ id, nome, descricao, imagem, preco }:ProdutoInfor)
         
         localStorage.setItem('produtos', JSON.stringify(produtos))
         alert('Produto adicionado ao carrinho')
+    }
+
+    function removerProdutoCarrinho(id: number) {
+        const produtos: ProdutoInfor[] = JSON.parse(localStorage.getItem('produtos') || '[]')
+        const produto = produtos.filter((prod: ProdutoInfor) => prod.id !== id)
+        localStorage.setItem('produtos', JSON.stringify(produto))
+        alert('Produto removido do carrinho')
+        router.refresh()
     }
 
     return(
@@ -39,7 +55,13 @@ export const CardProduto = ({ id, nome, descricao, imagem, preco }:ProdutoInfor)
                 <h1 className="font-bold">{nome}</h1>
                 {/* <p>{descricao}</p> */}
                 <span>R$ {preco}</span>
-                <button onClick={() => { addProdutoCarrinho({id, nome, descricao, imagem, preco}) }}>Adicionar ao Carrinho</button>
+                {
+                    !itemCarrinho ? (
+                        <button onClick={() => { addProdutoCarrinho({id, nome, descricao, imagem, preco}) }}>Adicionar ao Carrinho</button>
+                    ) : (
+                        <button onClick={() => { removerProdutoCarrinho(id) }}>Remover do Carrinho</button>
+                    )
+                }
             </div>
         </div>
     )
