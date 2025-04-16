@@ -3,13 +3,16 @@
 import { CardProduto } from "@/src/components/Cards/Produto";
 import { useEffect, useState } from "react";
 
-interface ProdutoApi {
-    id: number,
-    title: string,
-    description: string,
-    price: number,
-    image: string
-}
+// IMPORTAÇÃO DE INTERFACES
+import { ProdutoApi } from "@/src/interfaces/IProduto";
+
+// interface ProdutoApi {
+//     id: number,
+//     title: string,
+//     description: string,
+//     price: number,
+//     image: string
+// }
 
 
 export default function Home() {

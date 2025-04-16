@@ -1,16 +1,16 @@
 "use client"
 
 import { CardProduto } from "@/src/components/Cards/Produto";
+import { ProdutoInfor } from "@/src/interfaces/IProduto";
 import { useEffect, useState } from "react";
 
-interface ProdutoInfor {
-    id: number,
-    nome: string,
-    descricao: string,
-    preco: number,
-    imagem: string
-}
-
+// interface ProdutoInfor {
+//     id: number,
+//     nome: string,
+//     descricao: string,
+//     preco: number,
+//     imagem: string
+// }
 
 export default function Carrinho() {
 
@@ -19,7 +19,7 @@ export default function Carrinho() {
     return (
         <div className="w-full h-full flex flex-col items-center justify-evenly bg-gray-900 text-white">
 
-            <h1 className="text-3xl font-bold text-center">Produtos</h1>
+            <h1 className="text-3xl font-bold text-center">Carrinho</h1>
 
             <div className="w-[90%] max-w-[1500px] h-[100%] m-auto flex flex-wrap items-center justify-center gap-4 mt-10 mb-10">
                 {
@@ -31,6 +31,7 @@ export default function Carrinho() {
                             descricao={prod.descricao}
                             imagem={prod.imagem}
                             preco={prod.preco}
+                            itemCarrinho={true}
                         />
                     ))
                 }
