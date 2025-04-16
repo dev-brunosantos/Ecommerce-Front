@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { BtnCarrinho } from "./Btn/btnCarrinho"
 
 export const Menu = () => {
     return(
@@ -10,9 +11,11 @@ export const Menu = () => {
 
                 <ul className="w-[30%] h-full flex items-center justify-evenly text-center">
                     <li><Link href='/pages/home'>Home</Link></li>
-                    <li><Link href='/pages/carrinho'>Carrinho</Link></li>
+                    {/* <li><Link href='/pages/carrinho'>Carrinho</Link></li> */}
                     <li><Link href='/pages/contato'>Contato</Link></li>
                 </ul>
+
+                <BtnCarrinho />
             </nav>
         </header>
     )
