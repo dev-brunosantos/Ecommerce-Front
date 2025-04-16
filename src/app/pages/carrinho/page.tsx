@@ -2,15 +2,6 @@
 
 import { CardProduto } from "@/src/components/Cards/Produto";
 import { ProdutoInfor } from "@/src/interfaces/IProduto";
-import { useEffect, useState } from "react";
-
-// interface ProdutoInfor {
-//     id: number,
-//     nome: string,
-//     descricao: string,
-//     preco: number,
-//     imagem: string
-// }
 
 export default function Carrinho() {
 

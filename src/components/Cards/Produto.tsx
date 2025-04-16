@@ -2,15 +2,6 @@ import { ProdutoInfor } from "@/src/interfaces/IProduto"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-// interface ProdutoInfor {
-//     id: number,
-//     nome: string,
-//     descricao: string,
-//     preco: number,
-//     imagem: string,
-//     itemCarrinho?: boolean
-// }
-
 interface ProdutoCarrinho extends ProdutoInfor {
     itemCarrinho?: boolean
 }

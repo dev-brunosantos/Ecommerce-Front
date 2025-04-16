@@ -6,14 +6,6 @@ import { useEffect, useState } from "react";
 // IMPORTAÇÃO DE INTERFACES
 import { ProdutoApi } from "@/src/interfaces/IProduto";
 
-// interface ProdutoApi {
-//     id: number,
-//     title: string,
-//     description: string,
-//     price: number,
-//     image: string
-// }
-
 
 export default function Home() {
 
